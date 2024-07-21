@@ -5,17 +5,10 @@ from datetime import datetime
 import csv
 import re
 
-def format_date(date):
-    try:
-        parsed_date = datetime.strptime(date + '/2023', '%d/%m/%Y')
-        return parsed_date.strftime('%Y.%m.%d')
-    except ValueError:
-        return date
-
 def format_value_date(date):
     try:
         parsed_date = datetime.strptime(date, '%d%m%y')
-        return parsed_date.strftime('%Y.%m.%d')
+        return parsed_date.strftime('%d.%m.%Y')
     except ValueError:
         return date
 
@@ -105,7 +98,7 @@ with open(output_csv, mode='w', newline='', encoding='utf-8') as csvfile:
         if len(row) < 7:
             continue
         
-        date = format_date(str(row[5]))
+        date = format_value_date(str(row[5]))
         description = clean_description(str(row[2]))
         debit = format_number(row[3])
         credit = format_number(row[4])
