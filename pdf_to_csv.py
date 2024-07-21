@@ -56,14 +56,11 @@ def make_unique_columns(columns):
     return result
 
 # Check if input file is provided
-if len(sys.argv) != 2:
-    print("Usage: python pdf_to_csv.py <input_pdf>")
-    input_pdf = "/Users/ikoroteev/projects/budget/hellenic_pdf_to_csv/input/input.pdf"  # Replace with your PDF path
+if len(sys.argv) != 3:
+    print("Usage: python pdf_to_csv.py <input_pdf> <output_csv>")
 else:
     input_pdf = sys.argv[1]
-
-# Path to the output CSV file
-output_csv = "output.csv"
+    output_csv = sys.argv[2]
 
 # Open the PDF file
 with pdfplumber.open(input_pdf) as pdf:
