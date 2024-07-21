@@ -58,6 +58,7 @@ def make_unique_columns(columns):
 # Check if input file is provided
 if len(sys.argv) != 3:
     print("Usage: python pdf_to_csv.py <input_pdf> <output_csv>")
+    exit(1)
 else:
     input_pdf = sys.argv[1]
     output_csv = sys.argv[2]
